@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Anurag Pandey — Full-Stack Developer</title>
+<meta name="description" content="Portfolio of Anurag Pandey — full-stack developer (MERN) and final-year ECE student, DSA problem solver." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="nav__inner">
+    <a href="#top" class="nav__brand">
+      <img src="assets/PhotoLogo.jpg" alt="Anurag Pandey" class="nav__avatar" />
+      <span class="nav__name">Anurag Pandey</span>
+    </a>
+    <nav class="nav__links" id="navLinks">
+      <a href="#top">Home</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <a class="btn btn--primary" href="#contact">Let's connect</a>
+      <button class="nav__burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <h1 class="hero__name" aria-label="Anurag Pandey">
+    <span class="hero__name-line hero__name-line--outline">ANURAG</span>
+    <span class="hero__name-line hero__name-line--fill">PANDEY</span>
+  </h1>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>FULL-STACK DEVELOPER</span><span class="marquee__dot">•</span>
+    <span>OPEN TO WORK</span><span class="marquee__dot">•</span>
+    <span>DSA PROBLEM SOLVER</span><span class="marquee__dot">•</span>
+    <span>FULL-STACK DEVELOPER</span><span class="marquee__dot">•</span>
+    <span>OPEN TO WORK</span><span class="marquee__dot">•</span>
+    <span>DSA PROBLEM SOLVER</span><span class="marquee__dot">•</span>
+    <span>FULL-STACK DEVELOPER</span><span class="marquee__dot">•</span>
+    <span>OPEN TO WORK</span><span class="marquee__dot">•</span>
+  </div>
+</div>
+
+<section class="hero-sub">
+  <p class="hero-sub__text">
+    A <em>Software Engineer</em> shipping full-stack products, from schema
+    to deployment — and sharpening the logic underneath every one of them
+    through daily DSA practice.
+  </p>
+  <div class="hero-sub__actions">
+    <a class="btn btn--primary btn--lg" href="#projects">View projects <span>→</span></a>
+    <a class="btn btn--ghost btn--lg" href="assets/AnuragPandeyResume.pdf" download>
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 19h16"/></svg>
+      Download CV
+    </a>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
+  <div class="about__grid">
+    <div class="about__photo">
+      <div class="photo-card"> 
+        <img src="assets/photo.jpeg" alt="Anurag Pandey" class="photo-card__img" />
+      </div>
+      <a class="pill-btn" href="#contact">
+        <span class="pill-btn__arrow">→</span>
+        Let's work together
+      </a>
+    </div>
+
+    <div class="about__content">
+      <p class="eyebrow">About me</p>
+      <h2 class="about__title">
+        Engineering digital <span class="text-muted-strong">products</span> that
+        <span class="text-accent">actually ship.</span>
+      </h2>
+      <p class="about__desc">
+        I'm a final-year Electronics &amp; Communication Engineering student at
+        KIET, Ghaziabad, who fell in love with building software. I specialize
+        in full-stack MERN development — designing REST APIs, structuring
+        databases with MVC patterns, and building responsive interfaces —
+        while keeping my problem-solving sharp through daily Data Structures
+        &amp; Algorithms practice on LeetCode.
+      </p>
+
+      <div class="feature-grid">
+        <div class="feature">
+          <span class="feature__icon feature__icon--a">{ }</span>
+          <div>
+            <h3>Architecture</h3>
+            <p>MVC-structured, scalable backends</p>
+          </div>
+        </div>
+        <div class="feature">
+          <span class="feature__icon feature__icon--b">◆</span>
+          <div>
+            <h3>Interfaces</h3>
+            <p>Responsive, mobile-first UI</p>
+          </div>
+        </div>
+        <div class="feature">
+          <span class="feature__icon feature__icon--c">⚡</span>
+          <div>
+            <h3>Performance</h3>
+            <p>Indexed queries, fast endpoints</p>
+          </div>
+        </div>
+        <div class="feature">
+          <span class="feature__icon feature__icon--d">∴</span>
+          <div>
+            <h3>Problem Solving</h3>
+            <p>Daily DSA — arrays to DP</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCE / JOURNEY ============ -->
+<section class="journey" id="experience">
+  <p class="eyebrow eyebrow--center">My journey</p>
+  <h2 class="section-title section-title--center">Experience &amp; Involvement</h2>
+
+  <div class="timeline">
+
+    <div class="timeline__row">
+      <div class="timeline__card">
+        <div class="timeline__card-head">
+          <h3>Full-Stack Developer <span class="tag tag--now">Latest build</span></h3>
+          <span class="timeline__date">Sep 2025</span>
+        </div>
+        <p class="timeline__org">WonderLust — Personal Project</p>
+        <ul>
+          <li>Built a full-stack vacation rental platform with CRUD across 100+ listings, using MVC architecture for scalability.</li>
+          <li>Shipped 10+ RESTful endpoints with category-based filtering and indexed MongoDB queries.</li>
+          <li>Added secure auth &amp; session management with Passport.js and Express Session.</li>
+        </ul>
+        <div class="timeline__tags">
+          <span>React</span><span>Node.js</span><span>Express</span><span>MongoDB</span><span>EJS</span><span>Bootstrap</span>
+        </div>
+      </div>
+      <div class="timeline__spot"></div>
+      <div class="timeline__ghost"></div>
+    </div>
+
+    <div class="timeline__row timeline__row--reverse">
+      <div class="timeline__ghost"></div>
+      <div class="timeline__spot timeline__spot--alt"></div>
+      <div class="timeline__card">
+        <div class="timeline__card-head">
+          <h3>Core Member <span class="tag tag--role">Ongoing</span></h3>
+          <span class="timeline__date">2024 — Present</span>
+        </div>
+        <p class="timeline__org">InnoGeeks — Technical Society</p>
+        <ul>
+          <li>Contributed to web development and open-source projects within the society.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline__row">
+      <div class="timeline__card">
+        <div class="timeline__card-head">
+          <h3>Coordinator <span class="tag tag--role">Event</span></h3>
+          <span class="timeline__date">2024</span>
+        </div>
+        <p class="timeline__org">Innotech 2024 — Technical Fest</p>
+        <ul>
+          <li>Coordinated the technical fest end-to-end — logistics and cross-team execution.</li>
+        </ul>
+      </div>
+      <div class="timeline__spot"></div>
+      <div class="timeline__ghost"></div>
+    </div>
+
+    <div class="timeline__row timeline__row--reverse">
+      <div class="timeline__ghost"></div>
+      <div class="timeline__spot timeline__spot--alt"></div>
+      <div class="timeline__card">
+        <div class="timeline__card-head">
+          <h3>Photography Head <span class="tag tag--role">Leadership</span></h3>
+          <span class="timeline__date">2023 — 2024</span>
+        </div>
+        <p class="timeline__org">Spark Creation</p>
+        <ul>
+          <li>Led the photography team across 15+ college events, boosting the club's social media presence.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section class="projects" id="projects">
+  <p class="eyebrow eyebrow--center">Selected work</p>
+  <h2 class="section-title section-title--center">Projects</h2>
+
+  <div class="project-grid">
+    <article class="project-card project-card--featured">
+      <div class="project-card__top">
+        <span class="project-card__index">01</span>
+        <span class="project-card__date">Sep 2025</span>
+      </div>
+      <h3>WonderLust</h3>
+      <p>A full-stack vacation rental platform supporting CRUD across 100+ listings, structured with MVC architecture for scalability. 10+ RESTful endpoints, indexed Mongo queries, and Passport.js authentication — deployed on Render.</p>
+      <div class="project-card__tags">
+        <span>MongoDB</span><span>Express.js</span><span>Node.js</span><span>EJS</span><span>Bootstrap</span>
+      </div>
+      <a class="project-card__link" href="https://github.com/Anurag2327" target="_blank" rel="noopener">View repo <span>↗</span></a>
+    </article>
+
+    <article class="project-card">
+      <div class="project-card__top">
+        <span class="project-card__index">02</span>
+        <span class="project-card__date">Aug 2024</span>
+      </div>
+      <h3>Simon Says Game</h3>
+      <p>An interactive memory game with dynamic difficulty scaling and real-time sound synthesis via the Web Audio API. Scores persist through localStorage.</p>
+      <div class="project-card__tags">
+        <span>HTML</span><span>CSS</span><span>JavaScript</span>
+      </div>
+      <a class="project-card__link" href="https://github.com/Anurag2327" target="_blank" rel="noopener">View repo <span>↗</span></a>
+    </article>
+
+    <article class="project-card">
+      <div class="project-card__top">
+        <span class="project-card__index">03</span>
+        <span class="project-card__date">Jun 2024</span>
+      </div>
+      <h3>Spotify Clone</h3>
+      <p>A responsive, Spotify-inspired music player UI for 20+ songs, built with semantic HTML and hand-written CSS — Flexbox and Grid throughout.</p>
+      <div class="project-card__tags">
+        <span>HTML</span><span>CSS</span>
+      </div>
+      <a class="project-card__link" href="https://github.com/Anurag2327" target="_blank" rel="noopener">View repo <span>↗</span></a>
+    </article>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section class="skills" id="skills">
+  <p class="eyebrow eyebrow--center">Technical proficiency</p>
+  <h2 class="section-title section-title--center">Skills &amp; Toolkit</h2>
+
+  <div class="skills-grid">
+    <div class="skill-panel">
+      <div class="skill-panel__head">
+        <span class="skill-panel__icon">▦</span>
+        <h3>Frontend &amp; Design</h3>
+      </div>
+      <ul class="skill-items">
+        <li><span class="dot dot--a"></span>React</li>
+        <li><span class="dot dot--a"></span>HTML</li>
+        <li><span class="dot dot--a"></span>CSS</li>
+        <li><span class="dot dot--a"></span>Bootstrap</li>
+      </ul>
+    </div>
+
+    <div class="skill-panel">
+      <div class="skill-panel__head">
+        <span class="skill-panel__icon">▤</span>
+        <h3>Backend &amp; Database</h3>
+      </div>
+      <ul class="skill-items">
+        <li><span class="dot dot--b"></span>Node.js</li>
+        <li><span class="dot dot--b"></span>Express.js</li>
+        <li><span class="dot dot--b"></span>MongoDB</li>
+        <li><span class="dot dot--b"></span>REST APIs</li>
+      </ul>
+    </div>
+
+    <div class="skill-panel">
+      <div class="skill-panel__head">
+        <span class="skill-panel__icon">&gt;_</span>
+        <h3>Languages &amp; Tools</h3>
+      </div>
+      <ul class="skill-items">
+        <li><span class="dot dot--c"></span>C / C++</li>
+        <li><span class="dot dot--c"></span>Python</li>
+        <li><span class="dot dot--c"></span>Java</li>
+        <li><span class="dot dot--c"></span>JavaScript</li>
+        <li><span class="dot dot--c"></span>SQL</li>
+        <li><span class="dot dot--c"></span>Git &amp; GitHub</li>
+        <li><span class="dot dot--c"></span>Postman</li>
+        <li><span class="dot dot--c"></span>MATLAB</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="certs">
+    <div class="cert">
+      <span class="cert__tag">Jun 2025</span>
+      <h3>Palo Alto Networks — Cybersecurity Foundation</h3>
+      <p>Completed via Palo Alto Networks Academy.</p>
+    </div>
+    <div class="cert">
+      <span class="cert__tag">Apna College</span>
+      <h3>Full Stack Development Training</h3>
+      <p>React, Node.js, Express.js, MongoDB, JavaScript, SQL, REST APIs.</p>
+    </div>
+    <div class="cert">
+      <span class="cert__tag">Ongoing</span>
+      <h3>Data Structures &amp; Algorithms</h3>
+      <p>Actively solving problems on LeetCode.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="contact__inner">
+    <p class="eyebrow eyebrow--center">Get in touch</p>
+    <h2 class="section-title section-title--center section-title--xl">Let's build something.</h2>
+    <p class="contact__lead">Open to SDE / full-stack roles and internships. I reply fast.</p>
+
+    <div class="contact-grid">
+      <a href="mailto:pandeyanurag.work@gmail.com" class="contact-card">
+        <span class="contact-card__label">Email</span>
+        <span class="contact-card__value">pandeyanurag.work@gmail.com</span>
+      </a>
+      <a href="tel:+917067882963" class="contact-card">
+        <span class="contact-card__label">Phone</span>
+        <span class="contact-card__value">+91 7067882963</span>
+      </a>
+      <a href="https://linkedin.com/in/anuragpandey2265" target="_blank" rel="noopener" class="contact-card">
+        <span class="contact-card__label">LinkedIn</span>
+        <span class="contact-card__value">/in/anuragpandey2265</span>
+      </a>
+      <a href="https://github.com/Anurag2327" target="_blank" rel="noopener" class="contact-card">
+        <span class="contact-card__label">GitHub</span>
+        <span class="contact-card__value">/Anurag2327</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <span>© <span id="year"></span> Anurag Pandey</span>
+  <span>Built with HTML, CSS &amp; JS</span>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
