@@ -549,7 +549,7 @@ em { font-style: normal; color: var(--accent); font-family: var(--font-mono); fo
 .skills-grid {
   margin-top: 50px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 22px;
 }
 .skill-panel {
