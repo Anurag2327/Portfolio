@@ -42,3 +42,16 @@ document.querySelectorAll(".nav__links a").forEach((link) => {
     navBurger.setAttribute("aria-expanded", "false");
   });
 });
+
+// ---------------------------------------------------------------------------
+// Whole project card clickable (opens the project link)
+// ---------------------------------------------------------------------------
+document.querySelectorAll(".project-card[data-href]").forEach((card) => {
+  card.style.cursor = "pointer";
+  card.addEventListener("click", (e) => {
+    // Don't double-trigger if the actual "View" link (or any link inside) was clicked
+    if (e.target.closest("a")) return;
+    const url = card.getAttribute("data-href");
+    if (url) window.open(url, "_blank", "noopener");
+  });
+});
