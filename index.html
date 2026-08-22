@@ -14,6 +14,14 @@
 </head>
 <body>
 
+<!-- ============ LIVE BACKGROUND ============ -->
+<div class="bg-wallpaper" aria-hidden="true">
+  <span class="bg-orb bg-orb--1"></span>
+  <span class="bg-orb bg-orb--2"></span>
+  <span class="bg-orb bg-orb--3"></span>
+  <div class="bg-grid"></div>
+</div>
+
 <!-- ============ NAV ============ -->
 <header class="nav">
   <div class="nav__inner">
@@ -144,26 +152,57 @@
 </section>
 
 <!-- ============ EDUCATION ============ -->
-<section class="education" id="education">
+<section class="journey" id="education">
   <p class="eyebrow eyebrow--center">Academics</p>
   <h2 class="section-title section-title--center">Education</h2>
 
-  <div class="certs">
-    <div class="cert">
-      <span class="cert__tag">2023 — Present</span>
-      <h3>KIET, Ghaziabad</h3>
-      <p>B.Tech in Electronics &amp; Communication Engineering — CGPA: 7.0/10</p>
+  <div class="timeline">
+
+    <div class="timeline__row">
+      <div class="timeline__card">
+        <div class="timeline__card-head">
+          <h3>B.Tech — ECE <span class="tag tag--now">CGPA 7.0/10</span></h3>
+          <span class="timeline__date">2023 — Present</span>
+        </div>
+        <p class="timeline__org">KIET, Ghaziabad, Uttar Pradesh</p>
+        <ul>
+          <li>Pursuing Electronics &amp; Communication Engineering with a focus on full-stack development and DSA.</li>
+        </ul>
+      </div>
+      <div class="timeline__spot"></div>
+      <div class="timeline__ghost"></div>
     </div>
-    <div class="cert">
-      <span class="cert__tag">2021</span>
-      <h3>Senior Secondary (Class XII)</h3>
-      <p>Chhattisgarh Board of Secondary Education, Janjgir — Non-Medical, 88.8%</p>
+
+    <div class="timeline__row timeline__row--reverse">
+      <div class="timeline__ghost"></div>
+      <div class="timeline__spot timeline__spot--alt"></div>
+      <div class="timeline__card">
+        <div class="timeline__card-head">
+          <h3>Senior Secondary <span class="tag tag--role">Class XII</span></h3>
+          <span class="timeline__date">2021</span>
+        </div>
+        <p class="timeline__org">Chhattisgarh Board of Secondary Education, Janjgir</p>
+        <ul>
+          <li>Non-Medical stream — scored 88.8%.</li>
+        </ul>
+      </div>
     </div>
-    <div class="cert">
-      <span class="cert__tag">2019</span>
-      <h3>Secondary (Class X)</h3>
-      <p>Chhattisgarh Board of Secondary Education, Janjgir — 84.16%</p>
+
+    <div class="timeline__row">
+      <div class="timeline__card">
+        <div class="timeline__card-head">
+          <h3>Secondary <span class="tag tag--role">Class X</span></h3>
+          <span class="timeline__date">2019</span>
+        </div>
+        <p class="timeline__org">Chhattisgarh Board of Secondary Education, Janjgir</p>
+        <ul>
+          <li>Scored 84.16%.</li>
+        </ul>
+      </div>
+      <div class="timeline__spot"></div>
+      <div class="timeline__ghost"></div>
     </div>
+
   </div>
 </section>
 
@@ -294,64 +333,60 @@
   <p class="eyebrow eyebrow--center">Technical proficiency</p>
   <h2 class="section-title section-title--center">Skills &amp; Toolkit</h2>
 
-  <div class="skills-grid">
-    <div class="skill-panel">
-      <div class="skill-panel__head">
-        <span class="skill-panel__icon">▦</span>
-        <h3>Frontend &amp; Design</h3>
+  <div class="timeline">
+
+    <div class="timeline__row">
+      <div class="timeline__card">
+        <div class="timeline__card-head">
+          <h3>Frontend &amp; Design</h3>
+        </div>
+        <div class="timeline__tags">
+          <span>React</span><span>HTML</span><span>CSS</span><span>Bootstrap</span>
+        </div>
       </div>
-      <ul class="skill-items">
-        <li><span class="dot dot--a"></span>React</li>
-        <li><span class="dot dot--a"></span>HTML</li>
-        <li><span class="dot dot--a"></span>CSS</li>
-        <li><span class="dot dot--a"></span>Bootstrap</li>
-      </ul>
+      <div class="timeline__spot"></div>
+      <div class="timeline__ghost"></div>
     </div>
 
-    <div class="skill-panel">
-      <div class="skill-panel__head">
-        <span class="skill-panel__icon">▤</span>
-        <h3>Backend &amp; Database</h3>
+    <div class="timeline__row timeline__row--reverse">
+      <div class="timeline__ghost"></div>
+      <div class="timeline__spot timeline__spot--alt"></div>
+      <div class="timeline__card">
+        <div class="timeline__card-head">
+          <h3>Backend &amp; Database</h3>
+        </div>
+        <div class="timeline__tags">
+          <span>Node.js</span><span>Express.js</span><span>MongoDB</span><span>REST APIs</span>
+        </div>
       </div>
-      <ul class="skill-items">
-        <li><span class="dot dot--b"></span>Node.js</li>
-        <li><span class="dot dot--b"></span>Express.js</li>
-        <li><span class="dot dot--b"></span>MongoDB</li>
-        <li><span class="dot dot--b"></span>REST APIs</li>
-      </ul>
     </div>
 
-    <div class="skill-panel">
-      <div class="skill-panel__head">
-        <span class="skill-panel__icon">&gt;_</span>
-        <h3>Languages &amp; Tools</h3>
+    <div class="timeline__row">
+      <div class="timeline__card">
+        <div class="timeline__card-head">
+          <h3>Languages &amp; Tools</h3>
+        </div>
+        <div class="timeline__tags">
+          <span>C / C++</span><span>Python</span><span>Java</span><span>JavaScript</span><span>SQL</span><span>Git &amp; GitHub</span><span>Postman</span><span>MATLAB</span><span>VS Code</span><span>Terminal</span>
+        </div>
       </div>
-      <ul class="skill-items">
-        <li><span class="dot dot--c"></span>C / C++</li>
-        <li><span class="dot dot--c"></span>Python</li>
-        <li><span class="dot dot--c"></span>Java</li>
-        <li><span class="dot dot--c"></span>JavaScript</li>
-        <li><span class="dot dot--c"></span>SQL</li>
-        <li><span class="dot dot--c"></span>Git &amp; GitHub</li>
-        <li><span class="dot dot--c"></span>Postman</li>
-        <li><span class="dot dot--c"></span>MATLAB</li>
-        <li><span class="dot dot--c"></span>VS Code</li>
-        <li><span class="dot dot--c"></span>Terminal</li>
-      </ul>
+      <div class="timeline__spot"></div>
+      <div class="timeline__ghost"></div>
     </div>
 
-    <div class="skill-panel">
-      <div class="skill-panel__head">
-        <span class="skill-panel__icon">∞</span>
-        <h3>Core CS</h3>
+    <div class="timeline__row timeline__row--reverse">
+      <div class="timeline__ghost"></div>
+      <div class="timeline__spot timeline__spot--alt"></div>
+      <div class="timeline__card">
+        <div class="timeline__card-head">
+          <h3>Core CS</h3>
+        </div>
+        <div class="timeline__tags">
+          <span>Data Structures &amp; Algorithms</span><span>OOPs</span><span>Computer Networks</span><span>DBMS</span>
+        </div>
       </div>
-      <ul class="skill-items">
-        <li><span class="dot dot--a"></span>Data Structures &amp; Algorithms</li>
-        <li><span class="dot dot--a"></span>OOPs</li>
-        <li><span class="dot dot--a"></span>Computer Networks</li>
-        <li><span class="dot dot--a"></span>DBMS</li>
-      </ul>
     </div>
+
   </div>
 
   <div class="certs">
