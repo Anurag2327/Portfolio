@@ -5,15 +5,33 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Anurag Pandey — Full-Stack Developer</title>
 <meta name="description" content="Portfolio of Anurag Pandey — full-stack developer (MERN) and final-year ECE student, DSA problem solver." />
+<link rel="canonical" href="https://anurag2327.netlify.app/" />
+<meta name="theme-color" content="#4c3bcf" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://anurag2327.netlify.app/" />
+<meta property="og:title" content="Anurag Pandey — Full-Stack Developer" />
+<meta property="og:description" content="Portfolio of Anurag Pandey — full-stack developer (MERN) and final-year ECE student, DSA problem solver." />
+<meta property="og:image" content="https://anurag2327.netlify.app/assets/Photo.jpeg" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Anurag Pandey — Full-Stack Developer" />
+<meta name="twitter:description" content="Portfolio of Anurag Pandey — full-stack developer (MERN) and final-year ECE student, DSA problem solver." />
+<meta name="twitter:image" content="https://anurag2327.netlify.app/assets/Photo.jpeg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/Photo.jpeg" />
 
 <link rel="icon" type="image/jpeg" href="assets/PhotoLogo.jpg" />
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+<a href="#top" class="skip-link">Skip to content</a>
 
 <!-- ============ LIVE BACKGROUND ============ -->
 <div class="bg-wallpaper" aria-hidden="true">
@@ -27,7 +45,7 @@
 <header class="nav">
   <div class="nav__inner">
     <a href="#top" class="nav__brand">
-      <img src="assets/PhotoLogo.jpg" alt="Anurag Pandey" class="nav__avatar" />
+      <img src="assets/PhotoLogo.jpg" alt="Anurag Pandey" class="nav__avatar" width="36" height="36" decoding="async" />
       <span class="nav__name">Anurag Pandey</span>
     </a>
     <nav class="nav__links" id="navLinks">
@@ -95,7 +113,7 @@
   <div class="about__grid">
     <div class="about__photo">
       <div class="photo-card">
-        <img src="assets/Photo.jpeg" alt="Anurag Pandey" class="photo-card__img" />
+        <img src="assets/Photo.jpeg" alt="Anurag Pandey" class="photo-card__img" width="800" height="1107" decoding="async" fetchpriority="high" />
         <span class="photo-card__badge"><span class="photo-card__pulse"></span>Open to work</span>
       </div>
       <a class="pill-btn" href="#contact">
@@ -275,6 +293,13 @@
 
   <div class="project-grid">
     <article class="project-card project-card--featured" data-href="https://wonderlust-kxnd.onrender.com/listings">
+      <div class="project-card__thumb project-card__thumb--wonderlust" aria-hidden="true">
+        <svg viewBox="0 0 200 100" preserveAspectRatio="none">
+          <path d="M0 70 Q 40 40, 80 60 T 200 45 V100 H0 Z" fill="var(--accent)" opacity="0.35"/>
+          <path d="M0 80 Q 50 55, 100 75 T 200 65 V100 H0 Z" fill="var(--accent-2)" opacity="0.4"/>
+        </svg>
+        <span class="project-card__thumb-icon">⌂</span>
+      </div>
       <div class="project-card__top">
         <span class="project-card__index">01</span>
         <span class="project-card__date">Sep 2025</span>
@@ -284,10 +309,16 @@
       <div class="project-card__tags">
         <span>MongoDB</span><span>Express.js</span><span>Node.js</span><span>EJS</span><span>Bootstrap</span>
       </div>
-      <a class="project-card__link" href="https://wonderlust-kxnd.onrender.com/listings" target="_blank" rel="noopener">View WonderLust <span>↗</span></a>
+      <a class="project-card__link" href="https://wonderlust-kxnd.onrender.com/listings" target="_blank" rel="noopener" title="Opens WonderLust in a new tab">View WonderLust <span>↗</span></a>
     </article>
 
     <article class="project-card" data-href="https://anurag2327simonsaysgame.netlify.app/">
+      <div class="project-card__thumb project-card__thumb--simon" aria-hidden="true">
+        <span class="project-card__quad project-card__quad--1"></span>
+        <span class="project-card__quad project-card__quad--2"></span>
+        <span class="project-card__quad project-card__quad--3"></span>
+        <span class="project-card__quad project-card__quad--4"></span>
+      </div>
       <div class="project-card__top">
         <span class="project-card__index">02</span>
         <span class="project-card__date">Aug 2024</span>
@@ -297,10 +328,13 @@
       <div class="project-card__tags">
         <span>HTML</span><span>CSS</span><span>JavaScript</span>
       </div>
-      <a class="project-card__link" href="https://anurag2327simonsaysgame.netlify.app/" target="_blank" rel="noopener">View Game <span>↗</span></a>
+      <a class="project-card__link" href="https://anurag2327simonsaysgame.netlify.app/" target="_blank" rel="noopener" title="Opens Simon Says Game in a new tab">View Game <span>↗</span></a>
     </article>
 
     <article class="project-card" data-href="https://anurag2327spotifyclone.netlify.app/">
+      <div class="project-card__thumb project-card__thumb--wave" aria-hidden="true">
+        <span class="project-card__bar"></span><span class="project-card__bar"></span><span class="project-card__bar"></span><span class="project-card__bar"></span><span class="project-card__bar"></span><span class="project-card__bar"></span><span class="project-card__bar"></span>
+      </div>
       <div class="project-card__top">
         <span class="project-card__index">03</span>
         <span class="project-card__date">Jun 2024</span>
@@ -310,7 +344,7 @@
       <div class="project-card__tags">
         <span>HTML</span><span>CSS</span>
       </div>
-      <a class="project-card__link" href="https://anurag2327spotifyclone.netlify.app/" target="_blank" rel="noopener">View <span>↗</span></a>
+      <a class="project-card__link" href="https://anurag2327spotifyclone.netlify.app/" target="_blank" rel="noopener" title="Opens Spotify Clone in a new tab">View <span>↗</span></a>
     </article>
   </div>
 </section>
@@ -414,15 +448,15 @@
         <span class="contact-card__label">Phone</span>
         <span class="contact-card__value">+91 7067882963</span>
       </a>
-      <a href="https://linkedin.com/in/anuragpandey2265" target="_blank" rel="noopener" class="contact-card">
+      <a href="https://linkedin.com/in/anuragpandey2265" target="_blank" rel="noopener" class="contact-card" title="Opens LinkedIn in a new tab">
         <span class="contact-card__label">LinkedIn</span>
         <span class="contact-card__value">/in/anuragpandey2265</span>
       </a>
-      <a href="https://github.com/Anurag2327" target="_blank" rel="noopener" class="contact-card">
+      <a href="https://github.com/Anurag2327" target="_blank" rel="noopener" class="contact-card" title="Opens GitHub in a new tab">
         <span class="contact-card__label">GitHub</span>
         <span class="contact-card__value">/Anurag2327</span>
       </a>
-      <a href="https://leetcode.com/u/anurag2327/" target="_blank" rel="noopener" class="contact-card">
+      <a href="https://leetcode.com/u/anurag2327/" target="_blank" rel="noopener" class="contact-card" title="Opens LeetCode in a new tab">
         <span class="contact-card__label">LeetCode</span>
         <span class="contact-card__value">/anurag2327</span>
       </a>
