@@ -55,3 +55,43 @@ document.querySelectorAll(".project-card[data-href]").forEach((card) => {
     if (url) window.open(url, "_blank", "noopener");
   });
 });
+
+// ---------------------------------------------------------------------------
+// Scroll-reveal: fade + rise elements into view as the user scrolls
+// ---------------------------------------------------------------------------
+const revealTargets = document.querySelectorAll(
+  ".timeline__row, .project-card, .skill-panel, .cert, .contact-card, .about__photo, .about__content"
+);
+
+revealTargets.forEach((el, i) => {
+  el.classList.add("reveal");
+  el.style.transitionDelay = `${(i % 4) * 70}ms`;
+});
+
+if ("IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          el.classList.add("reveal--in");
+          revealObserver.unobserve(el);
+          // Once the entrance animation finishes, drop the reveal classes
+          // entirely so they don't linger and fight with hover transforms.
+          el.addEventListener(
+            "transitionend",
+            () => {
+              el.classList.remove("reveal", "reveal--in");
+              el.style.transitionDelay = "";
+            },
+            { once: true }
+          );
+        }
+      });
+    },
+    { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+  );
+  revealTargets.forEach((el) => revealObserver.observe(el));
+} else {
+  revealTargets.forEach((el) => el.classList.remove("reveal"));
+}
