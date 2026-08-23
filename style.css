@@ -63,7 +63,9 @@ body {
 }
 
 /* ---------------------------------------------------------------------
-   Live animated background — soft drifting gradient orbs + faint grid
+   Live animated background — a drifting graph network of nodes & edges,
+   nodding to data structures / graph traversal (this dev's daily craft)
+   instead of the generic blurred-gradient-orb look.
 --------------------------------------------------------------------- */
 .bg-wallpaper {
   position: fixed;
@@ -72,60 +74,41 @@ body {
   overflow: hidden;
   pointer-events: none;
 }
-.bg-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(90px);
-  opacity: 0.35;
-  will-change: transform;
+.bg-graph {
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+  mask-image: radial-gradient(ellipse 85% 65% at 50% 15%, #000 45%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 85% 65% at 50% 15%, #000 45%, transparent 100%);
 }
-.bg-orb--1 {
-  width: 480px; height: 480px;
-  top: -120px; left: -100px;
-  background: var(--accent);
-  animation: orbFloat1 22s ease-in-out infinite;
-}
-.bg-orb--2 {
-  width: 420px; height: 420px;
-  top: 40%; right: -140px;
-  background: var(--accent-2);
-  animation: orbFloat2 26s ease-in-out infinite;
-}
-.bg-orb--3 {
-  width: 380px; height: 380px;
-  bottom: -140px; left: 30%;
-  background: var(--accent);
-  opacity: 0.22;
-  animation: orbFloat3 30s ease-in-out infinite;
-}
-.bg-grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(to right, var(--border) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
-  background-size: 56px 56px;
-  opacity: 0.25;
-  mask-image: radial-gradient(ellipse 80% 60% at 50% 20%, #000 40%, transparent 100%);
-}
-[data-theme="dark"] .bg-orb { opacity: 0.28; }
-[data-theme="dark"] .bg-orb--3 { opacity: 0.16; }
+[data-theme="dark"] .bg-graph { opacity: 0.5; }
 
-@keyframes orbFloat1 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(80px, 60px) scale(1.1); }
+.bg-graph__edges line {
+  stroke-width: 1.4;
+  stroke-dasharray: 6 12;
+  animation: edgeFlow 7s linear infinite;
+  animation-delay: calc(var(--i) * -0.35s);
 }
-@keyframes orbFloat2 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(-70px, 50px) scale(1.08); }
+.bg-graph__edges line:nth-child(odd) { stroke: var(--accent); opacity: 0.55; }
+.bg-graph__edges line:nth-child(even) { stroke: var(--accent-2); opacity: 0.4; }
+@keyframes edgeFlow {
+  to { stroke-dashoffset: -180; }
 }
-@keyframes orbFloat3 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(50px, -40px) scale(1.12); }
+
+.bg-graph__nodes circle {
+  fill: var(--accent);
+  animation: nodePulse 3.4s ease-in-out infinite;
+  animation-delay: calc(var(--i) * -0.22s);
+}
+.bg-graph__nodes circle:nth-child(even) { fill: var(--accent-2); }
+@keyframes nodePulse {
+  0%, 100% { opacity: 0.35; r: 4px; }
+  50% { opacity: 0.9; r: 5.5px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .bg-orb { animation: none; }
+  .bg-graph__edges line, .bg-graph__nodes circle { animation: none; }
+  .bg-graph__nodes circle { opacity: 0.6; }
 }
 
 a { color: inherit; text-decoration: none; }
