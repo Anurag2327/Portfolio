@@ -63,8 +63,10 @@ body {
 }
 
 /* ---------------------------------------------------------------------
-   Live animated background — a low-opacity F1 car racing across the
-   screen on a loop. Playful nod to speed + precision.
+   Live animated background — a drifting graph network of nodes & edges,
+   nodding to data structures / graph traversal (this dev's daily craft)
+   instead of the generic blurred-gradient-orb look. Spans the full page
+   with a slow, organic drift plus per-node pulse and per-edge flow.
 --------------------------------------------------------------------- */
 .bg-wallpaper {
   position: fixed;
@@ -73,58 +75,52 @@ body {
   overflow: hidden;
   pointer-events: none;
 }
-.f1-scene {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 8%;
-  height: 90px;
+.bg-graph {
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+  mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 85%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 85%, transparent);
 }
-.f1-track-line {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 24px;
-  border-top: 2px dashed var(--border);
-  opacity: 0.6;
-}
-.f1-car {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 170px;
-  height: auto;
-  opacity: 0.55;
-  animation: driveAcross 9s linear infinite;
-}
-[data-theme="dark"] .f1-car { opacity: 0.65; }
+[data-theme="dark"] .bg-graph { opacity: 0.5; }
 
-@keyframes driveAcross {
-  0%   { transform: translateX(-200px); }
-  100% { transform: translateX(calc(100vw + 200px)); }
+.bg-graph__drift {
+  transform-origin: 50% 50%;
+  animation: graphDrift 28s ease-in-out infinite;
+}
+@keyframes graphDrift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-16px, 14px) scale(1.015); }
 }
 
-.car-body { fill: var(--accent); }
-.car-halo { stroke: var(--accent-2); stroke-width: 5; }
-.car-wheel { fill: var(--ink); opacity: 0.75; }
-.car-hub { fill: var(--bg); }
-.car-speedlines line {
-  stroke: var(--accent-2);
-  stroke-width: 3;
-  stroke-linecap: round;
-  opacity: 0.5;
-  animation: speedFlicker 0.6s ease-in-out infinite alternate;
+.bg-graph__edges line {
+  stroke-width: 1.4;
+  stroke-dasharray: 6 12;
+  animation: edgeFlow 7s linear infinite;
+  animation-delay: calc(var(--i) * -0.35s);
 }
-.car-speedlines line:nth-child(2) { animation-delay: 0.15s; }
-.car-speedlines line:nth-child(3) { animation-delay: 0.3s; }
-@keyframes speedFlicker {
-  from { opacity: 0.2; }
-  to { opacity: 0.6; }
+.bg-graph__edges line:nth-child(odd) { stroke: var(--accent); opacity: 0.5; }
+.bg-graph__edges line:nth-child(even) { stroke: var(--accent-2); opacity: 0.38; }
+@keyframes edgeFlow {
+  to { stroke-dashoffset: -180; }
+}
+
+.bg-graph__nodes circle {
+  fill: var(--accent);
+  animation: nodePulse 3.4s ease-in-out infinite;
+  animation-delay: calc(var(--i) * -0.22s);
+}
+.bg-graph__nodes circle:nth-child(even) { fill: var(--accent-2); }
+@keyframes nodePulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.9; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .f1-car { animation: none; left: 40%; }
-  .car-speedlines { display: none; }
+  .bg-graph__drift,
+  .bg-graph__edges line,
+  .bg-graph__nodes circle { animation: none; }
+  .bg-graph__nodes circle { opacity: 0.55; }
 }
 
 a { color: inherit; text-decoration: none; }
