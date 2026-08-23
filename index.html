@@ -33,51 +33,28 @@
 
 <a href="#top" class="skip-link">Skip to content</a>
 
-<!-- ============ LIVE BACKGROUND — animated graph network ============ -->
+<!-- ============ LIVE BACKGROUND — F1 car racing across ============ -->
 <div class="bg-wallpaper" aria-hidden="true">
-  <svg class="bg-graph" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-    <g class="bg-graph__edges">
-      <line x1="80" y1="80" x2="220" y2="150" style="--i:0"/>
-      <line x1="220" y1="150" x2="150" y2="300" style="--i:1"/>
-      <line x1="150" y1="300" x2="300" y2="220" style="--i:2"/>
-      <line x1="300" y1="220" x2="420" y2="90" style="--i:3"/>
-      <line x1="420" y1="90" x2="500" y2="260" style="--i:4"/>
-      <line x1="500" y1="260" x2="620" y2="140" style="--i:5"/>
-      <line x1="620" y1="140" x2="700" y2="320" style="--i:6"/>
-      <line x1="700" y1="320" x2="830" y2="180" style="--i:7"/>
-      <line x1="830" y1="180" x2="920" y2="90" style="--i:8"/>
-      <line x1="150" y1="300" x2="60" y2="420" style="--i:9"/>
-      <line x1="60" y1="420" x2="180" y2="480" style="--i:10"/>
-      <line x1="180" y1="480" x2="340" y2="420" style="--i:11"/>
-      <line x1="340" y1="420" x2="480" y2="480" style="--i:12"/>
-      <line x1="480" y1="480" x2="650" y2="430" style="--i:13"/>
-      <line x1="650" y1="430" x2="800" y2="470" style="--i:14"/>
-      <line x1="800" y1="470" x2="920" y2="400" style="--i:15"/>
-      <line x1="300" y1="220" x2="340" y2="420" style="--i:16"/>
-      <line x1="500" y1="260" x2="480" y2="480" style="--i:17"/>
-      <line x1="620" y1="140" x2="650" y2="430" style="--i:18"/>
-      <line x1="830" y1="180" x2="800" y2="470" style="--i:19"/>
-    </g>
-    <g class="bg-graph__nodes">
-      <circle cx="80" cy="80" r="5" style="--i:0"/>
-      <circle cx="220" cy="150" r="5" style="--i:1"/>
-      <circle cx="150" cy="300" r="5" style="--i:2"/>
-      <circle cx="300" cy="220" r="5" style="--i:3"/>
-      <circle cx="420" cy="90" r="5" style="--i:4"/>
-      <circle cx="500" cy="260" r="5" style="--i:5"/>
-      <circle cx="620" cy="140" r="5" style="--i:6"/>
-      <circle cx="700" cy="320" r="5" style="--i:7"/>
-      <circle cx="830" cy="180" r="5" style="--i:8"/>
-      <circle cx="920" cy="90" r="5" style="--i:9"/>
-      <circle cx="60" cy="420" r="5" style="--i:10"/>
-      <circle cx="180" cy="480" r="5" style="--i:11"/>
-      <circle cx="340" cy="420" r="5" style="--i:12"/>
-      <circle cx="480" cy="480" r="5" style="--i:13"/>
-      <circle cx="650" cy="430" r="5" style="--i:14"/>
-      <circle cx="800" cy="470" r="5" style="--i:15"/>
-      <circle cx="920" cy="400" r="5" style="--i:16"/>
-    </g>
-  </svg>
+  <div class="f1-scene">
+    <div class="f1-track-line"></div>
+    <svg class="f1-car" viewBox="-60 0 300 90" xmlns="http://www.w3.org/2000/svg">
+      <g class="car-speedlines">
+        <line x1="-10" y1="26" x2="-46" y2="26"/>
+        <line x1="-16" y1="40" x2="-56" y2="40"/>
+        <line x1="-10" y1="54" x2="-44" y2="54"/>
+      </g>
+      <rect class="car-body" x="4" y="14" width="28" height="6" rx="2"/>
+      <rect class="car-body" x="26" y="18" width="4" height="36"/>
+      <path class="car-body" d="M30 54 C 34 44, 46 38, 60 36 L 92 32 C 100 20, 118 18, 128 26 L 150 30 C 168 34, 182 40, 190 50 L 192 56 L 30 56 Z"/>
+      <path class="car-halo" d="M96 32 C 100 16, 122 16, 126 30" fill="none" stroke-linecap="round"/>
+      <rect class="car-body" x="192" y="46" width="4" height="14"/>
+      <rect class="car-body" x="192" y="56" width="32" height="6" rx="2"/>
+      <circle class="car-wheel" cx="56" cy="66" r="15"/>
+      <circle class="car-hub" cx="56" cy="66" r="6"/>
+      <circle class="car-wheel" cx="168" cy="66" r="15"/>
+      <circle class="car-hub" cx="168" cy="66" r="6"/>
+    </svg>
+  </div>
 </div>
 
 <!-- ============ NAV ============ -->
