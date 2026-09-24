@@ -50,6 +50,21 @@ if (bgMusic && musicToggle) {
 // aloud using the browser's built-in text-to-speech (no audio file needed)
 // ---------------------------------------------------------------------------
 if ("speechSynthesis" in window) {
+  let voices = [];
+  const loadVoices = () => { voices = window.speechSynthesis.getVoices(); };
+  loadVoices();
+  window.speechSynthesis.onvoiceschanged = loadVoices;
+
+  function pickFemaleVoice() {
+    if (!voices.length) return null;
+    const byName = /female|zira|samantha|victoria|susan|karen|moira|tessa|fiona|veena|google us english/i;
+    return (
+      voices.find((v) => byName.test(v.name)) ||
+      voices.find((v) => v.lang && v.lang.startsWith("en")) ||
+      voices[0]
+    );
+  }
+
   document.querySelectorAll(".project-card").forEach((card) => {
     const titleEl = card.querySelector("h3");
     const descEl = card.querySelector("p");
@@ -79,7 +94,10 @@ if ("speechSynthesis" in window) {
       if (wasSpeaking) return;
 
       const utterance = new SpeechSynthesisUtterance(`${titleEl.textContent}. ${descEl.textContent}`);
-      utterance.rate = 0.98;
+      const femaleVoice = pickFemaleVoice();
+      if (femaleVoice) utterance.voice = femaleVoice;
+      utterance.rate = 1;
+      utterance.pitch = 1.1;
       utterance.onend = setIdle;
       utterance.onerror = setIdle;
 
