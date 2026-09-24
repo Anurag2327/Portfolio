@@ -26,22 +26,63 @@ themeToggle.addEventListener("click", () => {
 });
 
 // ---------------------------------------------------------------------------
-// Background music: autoplays muted on load, click unmutes/mutes
+// Soft background pad — generated in-browser (Web Audio API), no file needed.
+// Click toggles a gentle, slowly-breathing ambient chord in/out.
 // ---------------------------------------------------------------------------
-const bgMusic = document.getElementById("bgMusic");
 const musicToggle = document.getElementById("musicToggle");
 
-if (bgMusic && musicToggle) {
-  bgMusic.volume = 0.35;
-  bgMusic.muted = true;
+if (musicToggle) {
+  let audioCtx = null;
+  let masterGain = null;
+  let isPlaying = false;
 
-  const tryPlay = () => bgMusic.play().catch(() => {});
-  tryPlay();
+  function buildSoftPad() {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    masterGain = audioCtx.createGain();
+    masterGain.gain.value = 0;
+    masterGain.connect(audioCtx.destination);
+
+    // A soft, warm chord (C major, plus a low sub) — each voice gently
+    // "breathes" in volume via its own slow LFO so it never feels static.
+    const voices = [
+      { freq: 130.81, level: 0.5, lfoRate: 0.05 }, // C3 sub
+      { freq: 261.63, level: 0.22, lfoRate: 0.07 }, // C4
+      { freq: 329.63, level: 0.18, lfoRate: 0.09 }, // E4
+      { freq: 392.0, level: 0.18, lfoRate: 0.11 }, // G4
+    ];
+
+    voices.forEach(({ freq, level, lfoRate }) => {
+      const osc = audioCtx.createOscillator();
+      osc.type = "sine";
+      osc.frequency.value = freq;
+
+      const voiceGain = audioCtx.createGain();
+      voiceGain.gain.value = level;
+
+      const lfo = audioCtx.createOscillator();
+      lfo.frequency.value = lfoRate;
+      const lfoGain = audioCtx.createGain();
+      lfoGain.gain.value = level * 0.4;
+      lfo.connect(lfoGain);
+      lfoGain.connect(voiceGain.gain);
+
+      osc.connect(voiceGain);
+      voiceGain.connect(masterGain);
+      osc.start();
+      lfo.start();
+    });
+  }
 
   musicToggle.addEventListener("click", () => {
-    bgMusic.muted = !bgMusic.muted;
-    musicToggle.setAttribute("aria-pressed", bgMusic.muted ? "false" : "true");
-    if (!bgMusic.muted) tryPlay();
+    if (!audioCtx) buildSoftPad();
+    if (audioCtx.state === "suspended") audioCtx.resume();
+
+    isPlaying = !isPlaying;
+    musicToggle.setAttribute("aria-pressed", isPlaying ? "true" : "false");
+
+    const now = audioCtx.currentTime;
+    masterGain.gain.cancelScheduledValues(now);
+    masterGain.gain.setTargetAtTime(isPlaying ? 0.05 : 0, now, 0.8);
   });
 }
 
