@@ -216,6 +216,10 @@ em { font-style: normal; color: var(--accent); font-family: var(--font-mono); fo
 [data-theme="dark"] .icon-moon { display: none; }
 [data-theme="dark"] .icon-sun { display: block; }
 
+.icon-unmute { display: none; }
+.music-toggle[aria-pressed="true"] .icon-mute { display: none; }
+.music-toggle[aria-pressed="true"] .icon-unmute { display: block; }
+
 .nav__burger {
   display: none;
   flex-direction: column;
@@ -615,6 +619,7 @@ em { font-style: normal; color: var(--accent); font-family: var(--font-mono); fo
   gap: 22px;
 }
 .project-card {
+  position: relative;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -716,6 +721,29 @@ em { font-style: normal; color: var(--accent); font-family: var(--font-mono); fo
   transition: color 0.2s ease, border-color 0.2s ease;
 }
 .project-card__link:hover { color: var(--accent); border-color: var(--accent); }
+
+.project-card__speak {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+.project-card__speak svg { width: 15px; height: 15px; }
+.project-card__speak:hover { border-color: var(--accent); color: var(--accent); }
+.project-card__speak.is-speaking {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
 
 /* ==========================================================================
    SKILLS

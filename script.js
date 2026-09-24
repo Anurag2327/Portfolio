@@ -26,6 +26,72 @@ themeToggle.addEventListener("click", () => {
 });
 
 // ---------------------------------------------------------------------------
+// Background music: autoplays muted on load, click unmutes/mutes
+// ---------------------------------------------------------------------------
+const bgMusic = document.getElementById("bgMusic");
+const musicToggle = document.getElementById("musicToggle");
+
+if (bgMusic && musicToggle) {
+  bgMusic.volume = 0.35;
+  bgMusic.muted = true;
+
+  const tryPlay = () => bgMusic.play().catch(() => {});
+  tryPlay();
+
+  musicToggle.addEventListener("click", () => {
+    bgMusic.muted = !bgMusic.muted;
+    musicToggle.setAttribute("aria-pressed", bgMusic.muted ? "false" : "true");
+    if (!bgMusic.muted) tryPlay();
+  });
+}
+
+// ---------------------------------------------------------------------------
+// Project "explain it to me" buttons — reads the project title + description
+// aloud using the browser's built-in text-to-speech (no audio file needed)
+// ---------------------------------------------------------------------------
+if ("speechSynthesis" in window) {
+  document.querySelectorAll(".project-card").forEach((card) => {
+    const titleEl = card.querySelector("h3");
+    const descEl = card.querySelector("p");
+    if (!titleEl || !descEl) return;
+
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "project-card__speak";
+    btn.setAttribute("aria-label", `Listen to an explanation of ${titleEl.textContent}`);
+    btn.innerHTML =
+      '<svg class="icon-speak-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></svg>' +
+      '<svg class="icon-speak-stop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="display:none"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>';
+    card.appendChild(btn);
+
+    const setIdle = () => {
+      btn.classList.remove("is-speaking");
+      btn.querySelector(".icon-speak-play").style.display = "";
+      btn.querySelector(".icon-speak-stop").style.display = "none";
+    };
+
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const wasSpeaking = btn.classList.contains("is-speaking");
+
+      window.speechSynthesis.cancel();
+      document.querySelectorAll(".project-card__speak").forEach(setIdle);
+      if (wasSpeaking) return;
+
+      const utterance = new SpeechSynthesisUtterance(`${titleEl.textContent}. ${descEl.textContent}`);
+      utterance.rate = 0.98;
+      utterance.onend = setIdle;
+      utterance.onerror = setIdle;
+
+      btn.classList.add("is-speaking");
+      btn.querySelector(".icon-speak-play").style.display = "none";
+      btn.querySelector(".icon-speak-stop").style.display = "";
+      window.speechSynthesis.speak(utterance);
+    });
+  });
+}
+
+// ---------------------------------------------------------------------------
 // Mobile nav toggle
 // ---------------------------------------------------------------------------
 const navBurger = document.getElementById("navBurger");
@@ -50,7 +116,7 @@ document.querySelectorAll(".project-card[data-href]").forEach((card) => {
   card.style.cursor = "pointer";
   card.addEventListener("click", (e) => {
     // Don't double-trigger if the actual "View" link (or any link inside) was clicked
-    if (e.target.closest("a")) return;
+    if (e.target.closest("a, button")) return;
     const url = card.getAttribute("data-href");
     if (url) window.open(url, "_blank", "noopener");
   });
